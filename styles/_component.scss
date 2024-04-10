@@ -1,0 +1,155 @@
+.hamburger-menu {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  z-index: 10;
+
+  .menu {
+    @extend %fullspace;
+    transition: transform 0.5s;
+
+    &-line {
+      width: 100%;
+      height: 4px;
+      background-color: $color-primary;
+      margin: 11px 0;
+      transform-origin: right;
+      transition: all 0.3s;
+    }
+  }
+  &-span-line {
+    cursor: pointer;
+  }
+}
+
+.logo {
+  @include flexx;
+  font-size: 70px;
+  color: $color-primary;
+  width: 110px;
+  height: 110px;
+  border: 3px solid $color-primary;
+  border-radius: 50%;
+  margin-right: 10px;
+  @include fontSize-responsive-lg(35px) {
+    width: 80px;
+    height: 80px;
+  }
+  @include fontSize-responsive-md(25px) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.main-name {
+  font-family: Georgia, "Times New Roman", Times;
+  font-size: 50px;
+  color: $color-secondary;
+  @include text-styles;
+
+  @include fontSize-responsive-lg(35px) {
+    text-align: center;
+  }
+  @include fontSize-responsive-md(25px) {
+    text-align: center;
+  }
+}
+
+.sub-name {
+  @include text-styles;
+  font-family: $font-josefinsans;
+  font-size: 18px;
+  color: $color-secondary;
+  text-align: center;
+}
+
+.main-heading {
+  font-family: $font-dancingScript;
+  font-size: 100px;
+  font-weight: 300;
+  color: $color-primary;
+  margin-bottom: 40px;
+  @include fontSize-responsive-md(60px);
+  @include fontSize-responsive-sm(40px);
+}
+.sub-heading {
+  font-family: $font-josefinsans;
+  font-size: 50px;
+  font-weight: 300;
+  color: $color-secondary;
+  margin-bottom: 80px;
+  @include fontSize-responsive-md(30px);
+  @include fontSize-responsive-sm(20px);
+}
+.main-btn {
+  width: 170px;
+  height: 45px;
+  font-weight: bold;
+  background-color: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  cursor: pointer;
+  font-family: $font-josefinsans;
+  font-size: 16px;
+  letter-spacing: 1px;
+  @include transitionn;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-black;
+    opacity: 70%;
+    font-size: 17px;
+  }
+  @include fontSize-responsive-md(12px) {
+    width: 120px;
+    height: 35px;
+  }
+}
+
+.card {
+  width: 33.3%;
+  height: 30vw;
+  position: relative;
+  overflow: hidden;
+
+  &:hover .card-overlay {
+    top: 35%;
+  }
+  &:hover .card-img {
+    opacity: 0.3;
+  }
+
+  &-overlay {
+    @extend %fullspace;
+    @include flexx;
+    flex-direction: column;
+    line-height: 30px;
+    position: absolute;
+    top: 135%;
+    left: 0;
+    @include transitionn;
+    color: #fff;
+    z-index: 1;
+
+    &-paragraph {
+      font-size: 20px;
+      @media (max-width: 1200px) {
+        display: none;
+      }
+    }
+    &-btn {
+      @extend .main-btn;
+      width: 80%;
+    }
+  }
+
+  &-img {
+    @extend %fullspace;
+    @include transitionn;
+    object-fit: cover;
+    opacity: 0.6;
+  }
+}

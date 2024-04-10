@@ -1,0 +1,216 @@
+.navbar {
+  position: relative;
+  z-index: 2;
+
+  .checkbox {
+    display: none;
+  }
+  &-navigation {
+    display: flex;
+
+    &-left {
+      width: 50vw;
+      height: 100vh;
+      background-color: $color-dark;
+      position: fixed;
+      left: -50vw;
+      transition: left 0.7s cubic-bezier(1, 0, 0, 1);
+
+      .left-img {
+        width: 50%;
+        position: absolute;
+        box-shadow: 0 15px 60px rgba($color-black, 0.4);
+        opacity: 0.7;
+        border-radius: 10px;
+      }
+      .left-img1 {
+        top: 15%;
+        left: 15%;
+        @include img-centering(30%);
+      }
+      .left-img2 {
+        top: 35%;
+        left: 25%;
+        @include img-centering(50%);
+      }
+      .left-img3 {
+        top: 55%;
+        left: 35%;
+        @include img-centering(70%);
+      }
+    }
+
+    &-right {
+      @include flexx;
+      width: 50vw;
+      height: 100vh;
+      position: fixed;
+      background-color: #1f1d1d;
+      right: -50vw;
+      transition: right 0.5s cubic-bezier(1, 0, 0, 1);
+    }
+    .nav-list {
+      &-link {
+        font-size: 40px;
+        color: $color-secondary;
+        display: block;
+        margin: 20px;
+        text-align: center;
+        font-family: $font-nunito;
+        @include transitionn;
+
+        &:hover {
+          color: $color-primary;
+          letter-spacing: 2px;
+        }
+
+        @media (max-width: 700px) {
+          font-size: 30px;
+        }
+        @media (max-width: 500px) {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-left {
+  left: 0;
+}
+.checkbox:checked ~ .navbar-navigation .navbar-navigation-right {
+  right: 0;
+}
+.checkbox:checked ~ .hamburger-menu .hamburger-menu-span-line {
+  transform: rotateZ(90deg);
+}
+.checkbox:checked ~ .hamburger-menu .menu-line2 {
+  display: none;
+}
+.checkbox:checked ~ .hamburger-menu .menu-line1 {
+  transform: rotateZ(-40deg);
+}
+.checkbox:checked ~ .hamburger-menu .menu-line3 {
+  transform: rotateZ(40deg);
+  position: absolute;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba($color-black, 0.8), rgba($color-black, 0.6)),
+    url(../img/bg.jpeg) center no-repeat;
+  background-size: cover;
+
+  .brand {
+    @include centering(15%);
+    display: flex;
+    align-items: center;
+  }
+
+  &-banner {
+    @include centering(50%);
+    text-align: center;
+  }
+}
+
+.about-us {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  margin-top: 60px;
+
+  &-left {
+    width: 40%;
+    @include fontSize-responsive-lg() {
+      display: none;
+      width: 0%;
+    }
+
+    img {
+      width: 100%;
+      opacity: 0.7;
+    }
+  }
+
+  &-right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 60px;
+    box-sizing: border-box;
+    @include fontSize-responsive-lg() {
+      width: 100%;
+    }
+
+    .main-heading {
+      font-size: 40px;
+      margin-bottom: 30px;
+      border-bottom: 2px groove $color-primary;
+      padding-bottom: 5px;
+    }
+    .stars {
+      margin: 30px 0;
+      text-align: center;
+    }
+    .star {
+      font-size: 15px;
+      color: $color-primary;
+      margin: 20px 10px;
+    }
+
+    .descripsion {
+      font-family: $font-josefinsans;
+      font-size: 25px;
+      color: $color-secondary;
+      text-align: justify;
+      padding-top: 20px;
+      text-indent: 30px;
+    }
+  }
+}
+
+.gallery {
+  .cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.footer {
+  padding: 50px 0;
+  @include flexx;
+  flex-direction: column;
+
+  &-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 70px;
+  }
+
+  .social-media {
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    &-link {
+      font-size: 50px;
+      color: $color-secondary;
+      @include transitionn;
+      
+
+      &:hover {
+        color: $color-primary;
+        font-size: 55px;
+      }
+    }
+  }
+  &-copyright-paragraph {
+    color: $color-secondary;
+    font-size: 20px;
+    letter-spacing: 10px;
+    font-family: $font-josefinsans;
+  }
+}
